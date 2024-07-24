@@ -1,10 +1,19 @@
 "use server"
 
 import { signIn } from "@/auth";
-import connectDB from "@/lib/db";
 import { User } from "@/models/user";
 import { hash } from "bcryptjs";
 import { redirect } from "next/navigation";
+
+const connectDB = async () => {
+  try{
+      await mongoose.connect(process.env.MONGO_URI)
+      console.log("mongoDB connected :) ");
+  }catch(e){
+      console.error(e.message);
+      process.exit(1);
+  }
+}
 
 
 export const loginUser = async (formData) => {
@@ -38,7 +47,8 @@ export const loginUser = async (formData) => {
         if (!email || !password || !age) {
             return { error: 'Please fill all fields' };
         }
-    
+
+        connectDB();
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return { error: "User already exists" };
