@@ -21,7 +21,7 @@ async function getUserLinks(userId){
 
 const Profile = async ({params}) => {
   const session = await auth();
-  console.log(session.user.username);
+  if(session) console.log(session.user.username);
   const person = await getUserInfo(params.username);
   if(!person) redirect("/")
   
