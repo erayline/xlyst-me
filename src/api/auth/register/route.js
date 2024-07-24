@@ -1,5 +1,5 @@
 // pages/api/auth/register.js
-import connectDB from "@/lib/db";
+import connectDB from "@/api/lib/db";
 import { User } from "@/models/user";
 import { hash } from "bcryptjs";
 

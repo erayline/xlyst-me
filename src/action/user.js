@@ -4,16 +4,8 @@ import { signIn } from "@/auth";
 import { User } from "@/models/user";
 import { hash } from "bcryptjs";
 import { redirect } from "next/navigation";
+import connectDB from "@/api/lib/db";
 
-const connectDB = async () => {
-  try{
-      await mongoose.connect(process.env.MONGO_URI)
-      console.log("mongoDB connected :) ");
-  }catch(e){
-      console.error(e.message);
-      process.exit(1);
-  }
-}
 
 
 export const loginUser = async (formData) => {
@@ -47,15 +39,14 @@ export const loginUser = async (formData) => {
         if (!email || !password || !age) {
             return { error: 'Please fill all fields' };
         }
-
-        connectDB();
+        await connectDB();
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return { error: "User already exists" };
         }
 
         const hashedPassword = await hash(password, 12);
-    
+        
         await User.create({
             email,
             password: hashedPassword,

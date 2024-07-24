@@ -1,6 +1,6 @@
 "use server"
 
-import connectDB from '@/lib/db'
+import connectDB from '@/api/lib/db'
 import { userLink } from '@/models/userLink';
 import React from 'react'
 import { User } from '@/models/user';
