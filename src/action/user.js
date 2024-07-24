@@ -6,6 +6,7 @@ import { User } from "@/models/user";
 import { hash } from "bcryptjs";
 import { redirect } from "next/navigation";
 
+
 export const loginUser = async (formData) => {
     const email = formData.get('email');
     const password = formData.get('password');
@@ -38,8 +39,6 @@ export const loginUser = async (formData) => {
             return { error: 'Please fill all fields' };
         }
     
-        await connectDB();
-
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return { error: "User already exists" };
