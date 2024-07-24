@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Tilt_Neon } from "next/font/google";
 
-const linkSchema = mongoose.Schema({
+const userLinkSchema = mongoose.Schema({
     //user,title,url,order,clicks
     user:{
         type:mongoose.Schema.Types.ObjectId,
@@ -20,7 +20,7 @@ const linkSchema = mongoose.Schema({
     },
     order:{
         type:Number,
-        default:true
+        default:0
     },
     clicks:{
         type:Number,
@@ -28,4 +28,4 @@ const linkSchema = mongoose.Schema({
     }
 })
 
-export const Link = mongoose.models?.Link || mongoose.model("Link", linkSchema);
+export const userLink = mongoose.models?.userLink || mongoose.model("userLink", userLinkSchema);
