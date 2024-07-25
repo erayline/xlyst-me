@@ -1,5 +1,9 @@
-const Navbar = () => {
-  
+import { auth, signOut } from "@/auth";
+
+const Navbar = async () => {
+
+  const session = await auth();
+
   return (
     <nav className="m-4">
       <div className="rounded-md lg:w-2/3 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
@@ -10,7 +14,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        {0 ? (
+        {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
               <a href={"/x/" + "kral"} className="navbar-li block  rounded lg:border-0 ">
@@ -18,14 +22,14 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
+              <form
                 action={async () => {
                   "use server";
                   await signOut();
                 }}
               >
                 <button type="submit" className="navbar-li block rounded lg:border-0">logout</button>
-              </a>
+              </form>
             </li>
           </ul>
         ) : (
