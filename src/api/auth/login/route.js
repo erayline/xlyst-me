@@ -2,10 +2,6 @@
 import { signIn } from "@/auth";
 
 export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).end(); // Method Not Allowed
-    }
-
     const { email, password } = req.body;
 
     try {
@@ -20,7 +16,10 @@ export default async function handler(req, res) {
         }
 
         return res.status(200).json({ success: true });
-    } catch (e) {
+    } 
+    
+    
+    catch (e) {
         console.error("Login error:", e);
         return res.status(500).json({ error: "An unexpected error occurred" }); // Internal Server Error
     }

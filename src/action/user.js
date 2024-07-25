@@ -1,62 +1,57 @@
 "use server"
 
-import { signIn } from "@/auth";
-import { User } from "@/models/user";
-import { hash } from "bcryptjs";
 import { redirect } from "next/navigation";
-import connectDB from "@/api/lib/db";
-
-
 
 export const loginUser = async (formData) => {
-    const email = formData.get('email');
-    const password = formData.get('password');
-  
-    try {
-      const result = await signIn('credentials', {
-        redirect: false,
-        email,
-        password
-      });
-  
-      if (result?.error) {
-        return { error: "Invalid email or password" };
-      }
-  
-      return { success: true };
-    } catch (e) {
-      console.error("Login error:", e);
-      return { error: "An unexpected error occurred" };
+  const email = formData.get('email');
+  const password = formData.get('password');
+
+  try {
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return { error: data.error || "An unexpected error occurred" };
     }
+
+    return { success: true };
+  } catch (e) {
+    console.error("Login error:", e);
+    return { error: "An unexpected error occurred" };
   }
+}
 
-  export const registerUser = async (formData) => {
-    const email = formData.get('email');
-    const password = formData.get('password');
-    const age = formData.get('age');
+export const registerUser = async (formData) => {
+  const email = formData.get('email');
+  const password = formData.get('password');
+  const age = formData.get('age');
 
-    try {
-        if (!email || !password || !age) {
-            return { error: 'Please fill all fields' };
-        }
-        await connectDB();
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return { error: "User already exists" };
-        }
+  try {
+    const response = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password, age }),
+    });
 
-        const hashedPassword = await hash(password, 12);
-        
-        await User.create({
-            email,
-            password: hashedPassword,
-            age
-        });
+    const data = await response.json();
 
-        console.log("New User created :)");
-        return { success: true };
-    } catch (e) {
-        console.error("Registration error:", e);
-        return { error: "An unexpected error occurred" };
-    }   
+    if (!response.ok) {
+      return { error: data.error || "An unexpected error occurred" };
+    }
+
+    console.log("New User created :)");
+    return { success: true };
+  } catch (e) {
+    console.error("Registration error:", e);
+    return { error: "An unexpected error occurred" };
+  }
 }
