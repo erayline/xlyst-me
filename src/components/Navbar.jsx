@@ -1,10 +1,6 @@
-import { auth, signOut } from "@/auth";
-import Link from "next/link";
-import React from "react";
 
 const Navbar = async () => {
   
-  const session = await auth();
 
   return (
     <nav class="m-4">
@@ -16,22 +12,22 @@ const Navbar = async () => {
           </span>
         </a>
 
-        {session ? (
+        {0 ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
-              <Link href={"/x/" + session.user.username} class="navbar-li block  rounded lg:border-0 ">
+              <a href={"/x/" + "kral"} class="navbar-li block  rounded lg:border-0 ">
                 Profile
-              </Link>
+              </a>
             </li>
             <li>
-              <form
+              <a
                 action={async () => {
                   "use server";
                   await signOut();
                 }}
               >
                 <button type="submit" className="navbar-li block rounded lg:border-0">logout</button>
-              </form>
+              </a>
             </li>
           </ul>
         ) : (
@@ -54,12 +50,12 @@ const Navbar = async () => {
                 </a>
               </li>
               <li>
-                <Link
+                <a
                   href="/login"
                   class="navbar-li hover:lg:bg-white hover:lg:text-black block rounded bg-slate-950 text-white border-2 "
                 >
                   Login
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
