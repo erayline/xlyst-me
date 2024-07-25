@@ -11,6 +11,7 @@ const Navbar = async () => {
           <p className="text-5xl">🍸</p>
           <span className="self-center text-white text-3xl font-semibold">
             Prestige List
+            
           </span>
         </a>
 
