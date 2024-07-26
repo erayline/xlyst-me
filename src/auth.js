@@ -9,7 +9,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             email: {label:"email",type:"email"},
             password: {label:"password",type:"password"},
           },
-        authorize: async () =>{
+        authorize: async (credentials) =>{
+          const email = credentials.email;
+          const password = credentials.password;
+
+          // burada route falan yap kendi giris methodunu kodla
+
+
             return {
                 username:"oldu",
                 email:"email@email.email"
