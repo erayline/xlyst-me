@@ -8,13 +8,15 @@ export async function POST(request){
     const password = request.password;
 
     if(!email || !password) NextResponse.json({success:false})
-    
+    console.log("mongodb is connecting")
     await mongoose.connect(process.env.MONGO_URI);
-    const user = await User.find({email:email, password:password})
+    console.log("mongodb is connected, user finding")
+    const user = await User.find({email:email})
+    console.log("user found")
 
     if(!user){
         NextResponse.json({success:false})
     } 
 
-    NextResponse.json({success:true})
+    NextResponse.json({success:true,user:user})
 }
