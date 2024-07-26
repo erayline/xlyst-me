@@ -22,5 +22,5 @@ export async function POST(request){
         username: data.username
     });
 
-    return NextResponse.json(data, { status: 201 });
+    return NextResponse.json({success:true}, { status: 201 });
 }

@@ -1,5 +1,7 @@
 "use server"
 
+import { redirect } from "next/navigation"
+
 const register = async (formData)=>{
     const email = formData.get("email")
     const password = formData.get("password")
@@ -17,7 +19,7 @@ const register = async (formData)=>{
         })
     })
     result = await result.json();
-    console.log(email , result);
+    if(result.success) redirect('/login');
 }
 
 export {register};
