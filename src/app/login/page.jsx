@@ -2,17 +2,10 @@
 
 
 import { login } from "@/action/user";
-import { auth } from "@/auth";
-import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
-import { useEffect } from "react";
 
 const Login = () => {
 
-  useEffect(async ()=>{
-    const session = await auth();
-    if(session) redirect('/')
-  })
     
     return (
       <div className='w-full flex flex-col my-32 items-center justify-center'>
