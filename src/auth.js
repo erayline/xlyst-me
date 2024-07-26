@@ -14,6 +14,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const password = credentials.password;
 
           // burada route falan yap kendi giris methodunu kodla
+          let result = await fetch("https://platinleaf.vercel.app/api/login",{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                email:email,
+                password:password,
+            })
+            })
+          result = await result.json();
+
+            console.log(result);
+
 
 
             return {
