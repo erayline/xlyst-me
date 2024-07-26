@@ -6,13 +6,12 @@ import { redirect } from "next/navigation"
 const login = async (formData) =>{
     const email = formData.get('email');
     const password = formData.get('password');
-    let answer = await signIn('credentials',{
+    await signIn('credentials',{
         redirect:false,
         callbackUrl:"/",
         email,
         password}
     )
-    answer = answer.json();
 }
 
 const register = async (formData)=>{
