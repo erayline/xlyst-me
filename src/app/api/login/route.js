@@ -14,8 +14,8 @@ export async function POST(request){
     const user = await User.find({email:email})
 
     if(!user){
-        NextResponse.json({success:false})
+        NextResponse.json({success:false}, { status: 201 })
     } 
 
-    NextResponse.json({success:true})
+    NextResponse.json({success:true}, { status: 201 })
 }
