@@ -10,7 +10,11 @@ const register = async (formData)=>{
         headers: {
             'Content-Type': 'application/json',
         },
-        body:JSON.stringify({mesaj:"naber"})
+        body:JSON.stringify({
+            email:email,
+            password:password,
+            username:username
+        })
     })
     result = await result.json();
     console.log(email , result);
