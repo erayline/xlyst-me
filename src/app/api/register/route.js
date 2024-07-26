@@ -6,10 +6,10 @@ import { User } from "@/models/User";
 export async function POST(request){
     const data = await request.json();
     console.log("*************************")
-    const db = mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log(db)
     console.log("mongoose connected");
-    User.create(
+    await User.create(
         {
         email:"deneme@deneme.deneme",
         password:"deneme",
