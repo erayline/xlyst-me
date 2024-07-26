@@ -1,19 +1,20 @@
-// app/api/auth/[...nextauth]/route.js
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth"
+import Credentials from "next-auth/providers/credentials"
 
-const handler = NextAuth({
+export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    Credentials({
+        name:"credentials",
+        credentials: {
+            email: {label:"email",type:"email"},
+            password: {label:"password",type:"password"},
+          },
+        authorize: async () =>{
+            return {
+                username:"oldu",
+                email:"email@email.email"
+            }
+        }
+    })
   ],
-  pages: {
-    signIn: '/login',  // Custom sign-in page
-    error: '/api/auth/error',  // Error page
-  },
-  debug: true,  // Enable debug mode
-});
-
-export { handler as GET, handler as POST };
+})
