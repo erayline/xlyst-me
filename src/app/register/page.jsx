@@ -9,7 +9,7 @@ const Register = () => {
         <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="age" type="text" name="age" id="age" required />
-        <button className='bg-primary text-white p-2 rounded w-full' type='submit'>signup</button>
+        <button className='bg-black text-white p-2 rounded w-full' type='submit'>signup</button>
         <p className='mt-4'>Already have an account? <a className='font-bold text-black hover:text-white hover:rounded hover:bg-primary p-2' href='/login'>Login</a></p>
       </form>
     </div>
