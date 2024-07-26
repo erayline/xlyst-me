@@ -7,7 +7,6 @@ export async function POST(request){
     const data = await request.json();
     console.log("*************************")
     await mongoose.connect(process.env.MONGO_URI);
-    console.log(db)
     console.log("mongoose connected");
     await User.create(
         {
