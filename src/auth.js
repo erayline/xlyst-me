@@ -1,31 +1,19 @@
-import NextAuth from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials" 
+// app/api/auth/[...nextauth]/route.js
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
+const handler = NextAuth({
   providers: [
-    CredentialsProvider({
-        name:"Credentials",
-        credentials:{
-            email:{label:"Email",type:"email"},
-            password:{label:"Password",type:"password"}
-        },
-        authorize: async (credentials)=>{
-            const email = credentials.email;
-            const password = credentials.password;
-            if(!email||!password){
-                throw new Error("Please fill in the form");
-            }
-            //fetch kullanarak kullanıcı adlarını falan çağıracağız
-            return ( {
-              email:"eray@e.e",
-              name:"eray"
-            } )
-
-        }
-    })
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
-  pages:{
-    signIn:'/login'
-  }
-})
+  pages: {
+    signIn: '/login',  // Custom sign-in page
+    error: '/api/auth/error',  // Error page
+  },
+  debug: true,  // Enable debug mode
+});
+
+export { handler as GET, handler as POST };
