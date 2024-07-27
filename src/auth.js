@@ -24,12 +24,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 password:password,
             })
             })
-          result = await result.json();
-
+            result = await result.json();
             console.log(result);
-
-
-
             return {
                 username:"oldu",
                 email:email

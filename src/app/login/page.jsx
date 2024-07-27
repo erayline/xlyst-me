@@ -15,7 +15,7 @@ const Login = () => {
           <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
           <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
           <button type='submit' className='bg-black text-white p-2 rounded w-full'>Login</button>
-          <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black hover:text-white hover:rounded hover:bg-primary p-2'>Register</Link></p>
+          <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black p-2'>Register</Link></p>
         </form>
       </div>
     )
