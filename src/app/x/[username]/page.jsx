@@ -11,9 +11,9 @@ const Page = ({params}) => {
     useEffect(()=>{
         fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
             method:"POST",
-            body: {
+            body: JSON.stringify({
                 username: params.username
-            }
+            })
         }
         ) // Replace with your API endpoint
         .then(response => response.json())
