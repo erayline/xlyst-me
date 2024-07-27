@@ -16,7 +16,7 @@ const Page = ({params}) => {
         }
         ) // Replace with your API endpoint
         let liste = await result.json();
-        setDatam(liste.liste);
+        setDatam(liste);
     },[])
     
     // const linkListesiJsx = datam.map((element,index) => {
@@ -24,6 +24,7 @@ const Page = ({params}) => {
     // })
     function sayDatam(){
         console.log(datam);
+        console.log(datam.liste);
     }
 
 
