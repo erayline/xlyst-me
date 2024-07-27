@@ -10,7 +10,13 @@ export async function POST(request){
     const title = data.title;
 
     await mongoose.connect(process.env.MONGO_URI);
-    return NextResponse({success:true});
-    
 
+    const createdLink = await UserLink.create({
+        url:url,
+        title:title,
+        user:userId
+    })
+    if(!createdLink) return NextResponse({success:false});
+    
+    return NextResponse({success:true});
 }   
