@@ -1,11 +1,8 @@
-"use client"
+"use client";
 
-import { addLink } from "@/action/link"
-
-// UNUTMA EKLE 
+import { addLink } from "@/action/link";
 
 const Register = () => {
-
   return (
     <div className='w-full flex flex-col my-32 items-center justify-center'>
       <form action={addLink} className='max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl flex flex-col justify-center items-center border-4 p-4 md:p-10 border-primary rounded'>
@@ -15,7 +12,7 @@ const Register = () => {
         <button className='bg-black text-white p-2 rounded w-full' type='submit'>Add</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
