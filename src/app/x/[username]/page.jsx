@@ -6,6 +6,8 @@ const Page = ({params}) => {
     const url = "https://www.x.com/_erayl";
     const icon = "https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png"
     
+    
+
     return (
         <div className='m-2'>
                 <ul className='flex flex-col items-center'>
