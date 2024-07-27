@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const email = credentials.email;
         const password = credentials.password;
 
-        let result = await fetch("http://localhost:3000/api/login", {
+        let result = await fetch("https://platinleaf.vercel.app/api/login", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
