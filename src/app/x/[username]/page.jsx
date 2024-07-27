@@ -16,7 +16,7 @@ const Page = ({params}) => {
             })
         }
         ) // Replace with your API endpoint
-        .then(response => response.json())
+        .then(async (response) => await response.json())
         .then(datam => setDatam(datam));
     },[])
     
