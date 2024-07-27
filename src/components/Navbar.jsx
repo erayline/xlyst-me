@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
 import Link from "next/link";
 
 const Navbar = async () => {
@@ -6,7 +6,8 @@ const Navbar = async () => {
   const session = await auth();
   if (session ) console.log(session.user)
 
-  return (
+
+    return (
     <nav className="m-4">
       <div className="rounded-md lg:w-2/3 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
         <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -27,12 +28,17 @@ const Navbar = async () => {
               </Link>
             </li>
             <li>
+             <form action={async () => {
+                'use server'
+                await signOut();
+              }}>
                 <button
                   className="navbar-li block rounded lg:border-0"
                   type="submit"
                 >
                   Logout
                 </button>
+              </form>
             </li>
           </ul>
         ) : (
