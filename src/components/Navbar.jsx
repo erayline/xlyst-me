@@ -1,6 +1,10 @@
+import { auth } from "@/auth";
 import Link from "next/link";
 
 const Navbar = async () => {
+
+  const session = await auth();
+  console.log(session)
 
   return (
     <nav className="m-4">
