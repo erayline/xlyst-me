@@ -1,9 +1,22 @@
 "use client";
 
-
+import { useSession } from "next-auth/react";
 import { addLink } from "@/action/link";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  // Redirect if not authenticated
+  if (status === "unauthenticated") {
+    router.push("/login");
+    return null;
+  }
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='w-full flex flex-col my-32 items-center justify-center'>
