@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 
 import { addLink } from "@/action/link";
