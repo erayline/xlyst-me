@@ -1,3 +1,5 @@
+"use client"
+
 import LinkTile from '@/components/LinkTile'
 import React from 'react'
 import { useSession } from 'next-auth/react';
