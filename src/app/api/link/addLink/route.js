@@ -13,7 +13,7 @@ export async function POST(request) {
         const createdLink = await UserLink.create({
             url,
             title,
-            user: userId,
+            user: username,
         });
 
         return NextResponse.json({ success: true, link: createdLink });
