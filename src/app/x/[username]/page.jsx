@@ -1,53 +1,54 @@
 "use client"
 
-import LinkTile from '@/components/LinkTile'
-import React from 'react'
-import { useSession } from 'next-auth/react';
-import { useState,useEffect } from 'react';
+import LinkTile from '@/components/LinkTile';
+import React, { useState, useEffect } from 'react';
 
-const Page = ({params}) => {
-    const [datam,setDatam] = useState(null);
+const Page = ({ params }) => {
+    const [datam, setDatam] = useState(null);
 
-    useEffect(async ()=>{
-        await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
-            method:"POST",
-            body: JSON.stringify({
-                username: params.username
-            })
-        }
-        ) // Replace with your API endpoint
-        .then(async (response) => await response.json())
-        .then(datam => setDatam(datam));
-    },[])
-    
-    function sayDatam(){
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/api/link/getUserLinks', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: params.username
+                })
+            });
+            const data = await response.json();
+            setDatam(data.liste);
+        };
 
+        fetchData();
+    }, [params.username]);
+
+    function sayDatam() {
         console.log(datam, "bu fetchten gelen");
     }
 
-
     return (
         <div className='m-2'>
-                <ul className='flex flex-col items-center'>
-                    <li className="mt-10">
-                        <h1 className='m-4 text-3xl font-bold'>
-                            <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
-                        </h1>
-                    </li>
-                    <li className='w-full flex justify-center'>
-                        <ul className='flex flex-col items-start'>
-                            <LinkTile title={"title"} url={"google.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                        </ul>
-                    </li>
-                </ul>
-                <button onClick={sayDatam}>stk</button>
+            <ul className='flex flex-col items-center'>
+                <li className="mt-10">
+                    <h1 className='m-4 text-3xl font-bold'>
+                        <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
+                    </h1>
+                </li>
+                <li className='w-full flex justify-center'>
+                    <ul className='flex flex-col items-start'>
+                        {datam ? datam.map((link, index) => (
+                            <LinkTile key={index} title={link.title} url={link.url} icon={link.icon} />
+                        )) : (
+                            <p>Loading...</p>
+                        )}
+                    </ul>
+                </li>
+            </ul>
+            <button onClick={sayDatam}>stk</button>
         </div>
     )
-}
+};
 
-export default Page
+export default Page;
