@@ -8,7 +8,9 @@ import { useState,useEffect } from 'react';
 const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
     const { data: session, status } = useSession();
-    console.log(session.user.userName);
+
+    console.log(session.user.username);
+    
     // useEffect(()=>{
     //     fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
     //         method:"POST",
