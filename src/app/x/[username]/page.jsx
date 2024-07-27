@@ -20,9 +20,9 @@ const Page = ({params}) => {
         setDatam(liste);
     },[])
     
-    function sayDatam(){
-        console.log(datam, "bu fetchten gelen");
-    }
+    const linkListesiJsx = datam.map((element,index) => {
+        <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
+    })
 
 
     return (
@@ -35,7 +35,8 @@ const Page = ({params}) => {
                     </li>
                     <li className='w-full flex justify-center'>
                         <ul className='flex flex-col items-start'>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
+                            <LinkTile title={"dummy"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
+                            {linkListesiJsx}
                         </ul>
                     </li>
                 </ul>
