@@ -20,7 +20,7 @@ const Navbar = async () => {
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
               <Link
-                href={"/x/" + "kral"}
+                href={"/x/" + session.user.username}
                 className="navbar-li block rounded lg:border-0"
               >
                 Profile
