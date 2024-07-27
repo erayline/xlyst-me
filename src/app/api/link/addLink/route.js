@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 export async function POST(request) {
     const data = await request.json();
-    const { userId, url, title } = data;
+    const { username, url, title } = data;
 
     await mongoose.connect(process.env.MONGO_URI);
 

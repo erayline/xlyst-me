@@ -3,7 +3,7 @@
 const addLink = async (formData) => {
     const title = formData.get('title');
     const url = formData.get('url');
-    const userId = formData.get('userId');
+    const username = formData.get('username');
 
     const response = await fetch("/api/link/addLink", {
         method: "POST",
@@ -13,7 +13,7 @@ const addLink = async (formData) => {
         body: JSON.stringify({
             title,
             url,
-            userId
+            username
         })
     });
 
