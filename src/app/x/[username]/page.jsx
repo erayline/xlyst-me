@@ -2,7 +2,6 @@
 
 import LinkTile from '@/components/LinkTile'
 import React from 'react'
-import { useSession } from 'next-auth/react';
 import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
@@ -18,12 +17,10 @@ const Page = ({params}) => {
         ) // Replace with your API endpoint
         let liste = await result.json();
         liste = liste.liste;
-        console.log(liste) ;
-
+        setDatam(liste);
     },[])
     
     function sayDatam(){
-
         console.log(datam, "bu fetchten gelen");
     }
 
@@ -38,11 +35,6 @@ const Page = ({params}) => {
                     </li>
                     <li className='w-full flex justify-center'>
                         <ul className='flex flex-col items-start'>
-                            <LinkTile title={"title"} url={"google.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
-                            <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
                             <LinkTile title={"instagram"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
                         </ul>
                     </li>
