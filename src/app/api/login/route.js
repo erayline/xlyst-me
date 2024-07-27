@@ -16,15 +16,14 @@ export async function POST(request) {
         await mongoose.connect(process.env.MONGO_URI);
 
         // Kullanıcıyı e-posta ve parola ile bul
-        const user = await User.findOne({ email, password });
-
+        let user = await User.findOne({ email,password });
         // Kullanıcı bulunamazsa hata döndür
         if (!user) {
             return NextResponse.json({ success: false, message: "Invalid email or password" }, { status: 401 });
         }
-
+        
         // Kullanıcı bulunursa başarı döndür
-        return NextResponse.json({ success: true, message: "Login successful" }, { status: 200 });
+        return NextResponse.json({ success: true, message:"Login successful",user:user}, { status: 200 });
     } catch (error) {
         console.error(error);
         return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });

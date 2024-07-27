@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = async () => {
 
   const session = await auth();
-  console.log(session)
+  if (session ) console.log(session.user)
 
   return (
     <nav className="m-4">
@@ -16,7 +16,7 @@ const Navbar = async () => {
           </span>
         </Link>
 
-        {0 ? (
+        {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
               <Link
