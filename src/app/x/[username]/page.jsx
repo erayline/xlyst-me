@@ -9,7 +9,7 @@ const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
     const { data: session, status } = useSession();
 
-    console.log(session.user.username);
+    console.log(session.user);
     
     // useEffect(()=>{
     //     fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
