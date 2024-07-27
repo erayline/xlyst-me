@@ -9,10 +9,6 @@ export async function POST(request) {
     await mongoose.connect(process.env.MONGO_URI);
 
     try {
-        // Check if the userId is a valid ObjectId
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            throw new Error("Invalid userId format");
-        }
 
         const createdLink = await UserLink.create({
             url,
