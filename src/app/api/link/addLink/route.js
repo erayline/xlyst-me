@@ -8,12 +8,11 @@ export async function POST(request) {
     const data = await request.json();
     const { userId, url, title } = data;
 
-
     await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
     try {
 
-        const createdLink = await UserLink.create({ url, title, user: mongoose.Types.ObjectId(userId); });
+        const createdLink = await UserLink.create({ url, title, user: mongoose.Types.ObjectId(userId) });
 
 
         return NextResponse.json({ success: true, link: createdLink });
