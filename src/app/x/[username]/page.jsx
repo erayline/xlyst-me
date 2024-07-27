@@ -17,8 +17,8 @@ const Page = ({params}) => {
         ) // Replace with your API endpoint
         let res = await result.json();
 
-        res = res.liste.map((element)=> {
-            return <LinkTile title={element.title} url={element.url} icon={element.icon}/>
+        res = res.liste.map((element,index)=> {
+            return <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
         })
 
 
