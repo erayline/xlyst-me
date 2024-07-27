@@ -12,7 +12,10 @@ export async function POST(request) {
     await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
     try {
+        
         const createdLink = await UserLink.create({ url, title, user: userId });
+
+
         return NextResponse.json({ success: true, link: createdLink });
     } catch (error) {
         console.error("Error creating link:", error);

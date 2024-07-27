@@ -12,11 +12,12 @@ const Register = () => {
   if (status === "unauthenticated") {
     router.push("/login");
     return null;
-  }
+  } 
   console.log(session);
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="m-10 text-center">Loading...</div>;
   }
+
 
   return (
     <div className='w-full flex flex-col my-32 items-center justify-center'>
@@ -24,6 +25,7 @@ const Register = () => {
         <h2 className='font-bold text-2xl md:text-3xl underline underline-offset-8 m-4'>Add a Link</h2>
         <input className='w-full p-2 mb-4 border rounded' placeholder='Title(X, my products...)' type="text" name="title" id="title" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="url" type="text" name="url" id="url" required />
+        <input type="hidden" name="userId" id="userId" value={session.user.id} />
         <button className='bg-black text-white p-2 rounded w-full' type='submit'>Add</button>
       </form>
     </div>
