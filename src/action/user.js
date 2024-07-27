@@ -6,6 +6,11 @@ import { redirect } from "next/navigation"
 const login = async (formData) =>{
     const email = formData.get('email');
     const password = formData.get('password');
+
+    //TODO: SİGN İN'İ DÜZELt
+
+
+
     const session = await signIn('credentials',{
         redirect:false,
         callbackUrl:"/",
