@@ -12,7 +12,7 @@ export async function POST(request) {
 
     try {
 
-        const createdLink = await UserLink.create({ url, title, user: mongoose.Types.ObjectId(userId) });
+        const createdLink = await UserLink.create({ url, title, user: new mongoose.Types.ObjectId(userId) });
 
 
         return NextResponse.json({ success: true, link: createdLink });
