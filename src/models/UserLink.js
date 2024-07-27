@@ -8,4 +8,4 @@ const userLinkSchema = mongoose.Schema({
     click:{type:Number,default:0}
 })
 
-export default UserLink = mongoose.models?.UserLink || mongoose.model("UserLink",userLinkSchema);
+export const UserLink = mongoose.models?.UserLink || mongoose.model("UserLink",userLinkSchema);

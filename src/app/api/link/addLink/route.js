@@ -1,4 +1,4 @@
-import UserLink from "@/models/UserLink"
+import {UserLink} from "@/models/UserLink"
 import { NextResponse } from "next/server"
 import mongoose from "mongoose";
 
