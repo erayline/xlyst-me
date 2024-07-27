@@ -11,7 +11,7 @@ export async function POST(request){
 
 
     await mongoose.connect(process.env.MONGO_URI);
-    const user = await User.find({email:email})
+    const user = await User.find({email:email,password:password})
 
     if(!user){
         return NextResponse.json({success:false}, { status: 201 })
