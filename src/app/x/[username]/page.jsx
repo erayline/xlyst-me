@@ -18,9 +18,12 @@ const Page = ({params}) => {
         ) // Replace with your API endpoint
         .then(response => response.json())
         .then(datam => setDatam(datam));
-        console.log(datam, "bu fetchten gelen");
     },[])
-   
+    
+    function sayDatam(){
+
+        console.log(datam, "bu fetchten gelen");
+    }
 
 
     return (
@@ -38,6 +41,7 @@ const Page = ({params}) => {
                         </ul>
                     </li>
                 </ul>
+                <button onClick={sayDatam}>stk</button>
         </div>
     )
 }
