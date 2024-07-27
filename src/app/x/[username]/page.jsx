@@ -9,15 +9,17 @@ const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
 
     useEffect(async ()=>{
-        await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
+        const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
             method:"POST",
             body: JSON.stringify({
                 username: params.username
             })
         }
         ) // Replace with your API endpoint
-        .then(async (response) => await response.json())
-        .then(datam => setDatam(datam));
+        let liste = await result.json();
+        liste = liste.liste;
+        console.log(liste) ;
+
     },[])
     
     function sayDatam(){
