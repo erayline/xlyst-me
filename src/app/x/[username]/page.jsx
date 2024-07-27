@@ -1,12 +1,31 @@
 import LinkTile from '@/components/LinkTile'
 import React from 'react'
+import { useSession } from 'next-auth/react';
+import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
-    const title = "x";
-    const url = "https://www.x.com/_erayl";
-    const icon = "https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png"
+    const [data,setData] = useState(null);
+    const { data: session, status } = useSession();
+
+    useEffect(()=>{
+        fetch('https://platinleaf.vercel.app/api/getUserLinks') // Replace with your API endpoint
+        .then(response => response.json())
+        .then(data => setData(data));
+        console.log(data);
+    },[])
+
+    if (status === "unauthenticated") {
+        router.push("/login");
+        return null;
+      } 
+      
+      console.log(session);
+      if (status === "loading") {
+        return <div className="m-10 text-center">Loading...</div>;
+      }
+
     
-    
+
 
     return (
         <div className='m-2'>
