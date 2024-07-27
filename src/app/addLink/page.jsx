@@ -13,7 +13,7 @@ const Register = () => {
     router.push("/login");
     return null;
   }
-
+  console.log(session);
   if (status === "loading") {
     return <div>Loading...</div>;
   }
