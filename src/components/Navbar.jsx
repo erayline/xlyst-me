@@ -4,7 +4,6 @@ import Link from "next/link";
 const Navbar = async () => {
 
   const session = await auth();
-  if (session ) console.log(session.user)
 
 
     return (

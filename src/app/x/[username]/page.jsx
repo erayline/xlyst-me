@@ -6,14 +6,14 @@ import { useSession } from 'next-auth/react';
 import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
-    const [data,setData] = useState(null);
+    const [datam,setDatam] = useState(null);
     const { data: session, status } = useSession();
-
+    console.log(session);
     useEffect(()=>{
         fetch('https://platinleaf.vercel.app/api/getUserLinks') // Replace with your API endpoint
         .then(response => response.json())
-        .then(data => setData(data));
-        console.log(data);
+        .then(datam => setDatam(datam));
+        console.log(datam);
     },[])
 
     if (status === "unauthenticated") {
