@@ -1,7 +1,8 @@
 "use client"
 
+import { addLink } from "@/action/link"
+
 // UNUTMA EKLE 
-import { addLink } from "@/action/user"
 
 const Register = () => {
 

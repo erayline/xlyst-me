@@ -15,7 +15,6 @@ const addLink = async (formData)=>{
         }
     })
 
-    console.log(response);
     
     // buraya endpoint gelecek.
 
