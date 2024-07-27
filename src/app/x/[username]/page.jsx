@@ -7,8 +7,6 @@ import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
-    const { data: session, status } = useSession();
-    const [username,setUsername] = useState("x");
 
     useEffect(()=>{
         fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
@@ -22,17 +20,7 @@ const Page = ({params}) => {
         .then(datam => setDatam(datam));
         console.log(datam);
     },[])
-
-    if (status === "unauthenticated") {
-        router.push("/login");
-        return null;
-      } 
-      
-      if (status === "loading") {
-        return <div className="m-10 text-center">Loading...</div>;
-      }
-
-    
+   
 
 
     return (
