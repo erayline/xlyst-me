@@ -2,12 +2,8 @@
 
 
 import { addLink } from "@/action/link";
-import { useSession } from "next-auth/react";
 
 const Register = () => {
-
-  const session = useSession();
-  console.log(session); 
 
   return (
     <div className='w-full flex flex-col my-32 items-center justify-center'>
