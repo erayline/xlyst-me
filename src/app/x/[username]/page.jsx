@@ -10,7 +10,7 @@ const Page = ({params}) => {
     const { data: session, status } = useSession();
     console.log(session);
     useEffect(()=>{
-        fetch('https://platinleaf.vercel.app/api/getUserLinks') // Replace with your API endpoint
+        fetch('https://platinleaf.vercel.app/api/link/getUserLinks') // Replace with your API endpoint
         .then(response => response.json())
         .then(datam => setDatam(datam));
         console.log(datam);
