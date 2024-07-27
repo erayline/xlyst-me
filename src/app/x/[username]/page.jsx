@@ -18,7 +18,7 @@ const Page = ({params}) => {
         ) // Replace with your API endpoint
         .then(response => response.json())
         .then(datam => setDatam(datam));
-        console.log(datam);
+        console.log(datam, "bu fetchten gelen");
     },[])
    
 
