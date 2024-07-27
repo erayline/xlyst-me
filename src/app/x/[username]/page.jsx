@@ -8,28 +8,26 @@ import { useState,useEffect } from 'react';
 const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
     const { data: session, status } = useSession();
+    const [username,setUsername] = useState("x");
 
-    console.log(session.user);
-    
-    // useEffect(()=>{
-    //     fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
-    //         method:"POST",
-    //         body: {
-
-    //         }
-    //     }
-    //     ) // Replace with your API endpoint
-    //     .then(response => response.json())
-    //     .then(datam => setDatam(datam));
-    //     console.log(datam);
-    // },[])
+    useEffect(()=>{
+        fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
+            method:"POST",
+            body: {
+                username: params.username
+            }
+        }
+        ) // Replace with your API endpoint
+        .then(response => response.json())
+        .then(datam => setDatam(datam));
+        console.log(datam);
+    },[])
 
     if (status === "unauthenticated") {
         router.push("/login");
         return null;
       } 
       
-      console.log(session);
       if (status === "loading") {
         return <div className="m-10 text-center">Loading...</div>;
       }
