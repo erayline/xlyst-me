@@ -10,13 +10,14 @@ export async function POST(request){
 
 
     await mongoose.connect(process.env.MONGO_URI);
-
     const user = await User.findOne({userName:username});
-    
+    console.log(user);
+
     if(!user) return NextResponse.json({success:false})
     let userId = user.id;
     
     const linkList = await UserLink.find({user:userId})
+    console.log(linkList)
     return NextResponse.json({success:true,liste:linkList})
 
 }

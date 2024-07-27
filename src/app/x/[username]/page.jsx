@@ -8,8 +8,8 @@ import { useState,useEffect } from 'react';
 const Page = ({params}) => {
     const [datam,setDatam] = useState(null);
 
-    useEffect(()=>{
-        fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
+    useEffect(async ()=>{
+        await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
             method:"POST",
             body: JSON.stringify({
                 username: params.username
