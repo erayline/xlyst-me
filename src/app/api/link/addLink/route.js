@@ -17,7 +17,7 @@ export async function POST(request) {
         const createdLink = await UserLink.create({
             url,
             title,
-            user: new mongoose.Types.ObjectId(userId),
+            user: userId,
         });
 
         return NextResponse.json({ success: true, link: createdLink });
