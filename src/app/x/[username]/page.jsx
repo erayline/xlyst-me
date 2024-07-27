@@ -24,7 +24,9 @@ const Page = ({params}) => {
     // })
     function sayDatam(){
         console.log(datam);
-        console.log(datam.liste);
+        console.log(datam.liste)
+        datam.liste.map((element) => console.log(element));
+        datam.liste.map((element) => console.log(element.title));
     }
 
 
