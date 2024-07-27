@@ -16,7 +16,6 @@ const Page = ({params}) => {
         }
         ) // Replace with your API endpoint
         let liste = await result.json();
-        liste = liste.liste;
         setDatam(liste);
     },[])
     
