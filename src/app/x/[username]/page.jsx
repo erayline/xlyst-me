@@ -58,26 +58,3 @@ const Page = ({params}) => {
 }
 
 export default Page
-
-
-
-
-//     const handleDelete = async (id) => {
-//         await fetch('https://platinleaf.vercel.app/api/link/deleteUserLink', {
-//             method: "DELETE",
-//             body: JSON.stringify({ id })
-//         });
-
-//         setUserList(userList.filter(link => link._id !== id));
-//     };
-
-
-// {userList.map((element, index) => (
-//     <LinkTile 
-//         key={index} 
-//         title={element.title} 
-//         url={element.url} 
-//         icon={element.icon} 
-//         onDelete={() => handleDelete(element._id)} 
-//     />
-// ))}
