@@ -1,5 +1,4 @@
 import { auth, signOut } from "@/auth";
-import Link from "next/link";
 
 const Navbar = async () => {
 
@@ -19,12 +18,12 @@ const Navbar = async () => {
         {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
             <li>
-              <Link
-                href={"/x/" + session.user.username}
+              <a
+                href={"https://platinleaf.vercel.app/x/" + session.user.username}
                 className="navbar-li block rounded lg:border-0"
               >
                 Profile
-              </Link>
+              </a>
             </li>
             <li>
              <form action={async () => {
@@ -47,25 +46,25 @@ const Navbar = async () => {
           >
             <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
               <li>
-                <Link href="/" className="navbar-li block rounded lg:border-0">
+                <a href="https://platinleaf.vercel.app/" className="navbar-li block rounded lg:border-0">
                   How it works?
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/packs"
+                <a
+                  href="https://platinleaf.vercel.app/packs"
                   className="navbar-li block rounded lg:border-0"
                 >
                   Packs
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/login"
+                <a
+                  href="https://platinleaf.vercel.app/login"
                   className="navbar-li hover:lg:bg-white hover:lg:text-black block rounded bg-slate-950 text-white border-2"
                 >
                   Login
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
