@@ -1,11 +1,13 @@
 "use client"
 
 import LinkTile from '@/components/LinkTile'
+import { useSession } from 'next-auth/react';
 import React from 'react'
 import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
     const [userList,setUserList] = useState(null);
+    const { data: session, status } = useSession();
 
     useEffect(async ()=>{
         const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
@@ -17,11 +19,10 @@ const Page = ({params}) => {
         ) // Replace with your API endpoint
         let res = await result.json();
 
+        //link tile oluşturuyoruz
         res = res.liste.map((element,index)=> {
             return <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
         })
-
-
         setUserList(res);
     },[])
     
@@ -33,6 +34,7 @@ const Page = ({params}) => {
         <div className='m-2'>
                 <ul className='flex flex-col items-center'>
                     <li className="mt-10">
+                        <a className='m-4 p-4 bg-black text-white' href="https://platinleaf.vercel.app/addLink">link ekle</a>
                         <h1 className='m-4 text-3xl font-bold'>
                             <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
                         </h1>
