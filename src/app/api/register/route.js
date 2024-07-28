@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import { User } from "@/models/User";
+import { hash } from "bcryptjs";
 
 
 export async function POST(request){
@@ -16,11 +17,11 @@ export async function POST(request){
         );
     }
 
-    
+    const hashedPassword = await hash(data.password,12);
 
     await User.create({
         email: data.email,
-        password: data.password,
+        password: hashedPassword,
         userName: data.username
     });
 

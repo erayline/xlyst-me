@@ -36,11 +36,9 @@ const register = async (formData)=>{
             username:username
         })
     })
+
     result = await result.json();
     if(result.success) redirect('/login');
-
-    
-
 }
 
 export {register,login};

@@ -16,7 +16,7 @@ export async function POST(request) {
             user: username,
         });
 
-        return NextResponse.json({ success: true, link: createdLink });
+        return NextResponse.json({ success: true, username:username });
     } catch (error) {
         console.error("Error creating link:", error);
         return NextResponse.json({ success: false, error: error.message });

@@ -1,5 +1,9 @@
 // import { auth } from "@/auth";
 
+import { redirect } from "next/navigation";
+
+
+
 const addLink = async (formData) => {
     const title = formData.get('title');
     const url = formData.get('url');
@@ -19,6 +23,7 @@ const addLink = async (formData) => {
 
     const data = await response.json();
     if (data.success) {
+        redirect(`/x/${username}`)
         // handle success
     } else {
         // handle error
