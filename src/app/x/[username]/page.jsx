@@ -28,7 +28,7 @@ const Page = ({params}) => {
 
     if(status==="loading"){
         return (<div>
-            
+            🍸
         </div>)
     }   
     
@@ -41,7 +41,7 @@ const Page = ({params}) => {
     return (
         <div className='m-2'>
                 <ul className='flex flex-col items-center'>
-                    {session.user.username == params.username && addLinkJsx}
+                    {(session) && (session.user.username == params.username && addLinkJsx)}
                     <li className="mt-10">
                         <h1 className='m-4 text-3xl font-bold'>
                             <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
