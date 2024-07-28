@@ -34,7 +34,8 @@ const Page = ({params}) => {
         <div className='m-2'>
                 <ul className='flex flex-col items-center'>
                     <li className="mt-10">
-                        <a className='m-4 p-4 bg-black text-white' href="https://platinleaf.vercel.app/addLink">link ekle</a>
+                        {session.user.username == params.username && <a className='m-4 p-4 bg-black text-white' href="https://platinleaf.vercel.app/addLink">link ekle</a>}
+                        
                         <h1 className='m-4 text-3xl font-bold'>
                             <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
                         </h1>
