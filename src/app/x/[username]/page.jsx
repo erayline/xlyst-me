@@ -39,7 +39,6 @@ const Page = ({params}) => {
                     </li>
                     <li className='w-full flex justify-center'>
                         <ul className='flex flex-col items-start'>
-                            <LinkTile title={"dummy"} url={"url.com"} icon={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"}/>
                             {userList}
                         </ul>
                     </li>

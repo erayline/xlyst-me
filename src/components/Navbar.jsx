@@ -9,12 +9,12 @@ const Navbar = async () => {
     return (
     <nav className="m-4">
       <div className="rounded-md lg:w-2/3 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
-        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="https://platinleaf.vercel.app" className="flex items-center space-x-3 rtl:space-x-reverse">
           <p className="text-5xl">🍸</p>
           <span className="self-center text-white text-3xl font-semibold">
             Prestige List
           </span>
-        </Link>
+        </a>
 
         {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
