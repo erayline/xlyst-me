@@ -7,7 +7,8 @@ import { useState,useEffect } from 'react';
 
 const Page = ({params}) => {
     const [userList,setUserList] = useState(null);
-    const { data: session, status } = useSession();
+    const [session,setSession] = useState(null);
+    const { data, status } = useSession();
 
     useEffect(async ()=>{
         const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
@@ -24,6 +25,7 @@ const Page = ({params}) => {
             return <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
         })
         setUserList(res);
+        setSession(data);
     },[])
     
     // const linkListesiJsx = datam.map((element,index) => {
