@@ -2,36 +2,51 @@
 
 import LinkTile from '@/components/LinkTile'
 import { useSession } from 'next-auth/react';
-import React from 'react'
-import { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Page = ({params}) => {
-    const [userList,setUserList] = useState(null);
+    const [userList,setUserList] = useState([]);
     const { data:session, status } = useSession();
 
-    useEffect(async ()=>{
-        const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
-            method:"POST",
-            body: JSON.stringify({
-                username: params.username
-            })
-        }
-        ) // Replace with your API endpoint
-        let res = await result.json();
+    useEffect(() => {
+        const fetchUserLinks = async () => {
+            const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
+                method: "POST",
+                body: JSON.stringify({
+                    username: params.username
+                })
+            });
 
-        //link tile oluşturuyoruz
-        res = res.liste.map((element,index)=> {
-            return <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
-        })
-        setUserList(res);
-    },[])
+            const res = await result.json();
 
+            setUserList(res.liste);
+        };
+
+        fetchUserLinks();
+    }, [params.username]);
+
+    
+    const handleDelete = async (id) => {
+        await fetch('https://platinleaf.vercel.app/api/link/deleteUserLink', {
+            method: "DELETE",
+            body: JSON.stringify({ id })
+        });
+
+        setUserList(userList.filter(link => link._id !== id));
+    };
+    
+    
+    
+    
     if(status==="loading"){
         return (<div>
             🍸
         </div>)
     }   
     
+
+
+
     // const linkListesiJsx = datam.map((element,index) => {
     //     <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
     // }) 
@@ -49,7 +64,15 @@ const Page = ({params}) => {
                     </li>
                     <li className='w-full flex justify-center'>
                         <ul className='flex flex-col items-start'>
-                            {userList}
+                        {userList.map((element, index) => (
+                            <LinkTile 
+                                key={index} 
+                                title={element.title} 
+                                url={element.url} 
+                                icon={element.icon} 
+                                onDelete={() => handleDelete(element._id)} 
+                            />
+                        ))}
                         </ul>
                     </li>
                 </ul>
@@ -58,3 +81,4 @@ const Page = ({params}) => {
 }
 
 export default Page
+
