@@ -5,7 +5,7 @@ export async function POST(req, res) {
     try {
         await mongoose.connect(process.env.MONGO_URI);
 
-        const { id } = JSON.parse(req.body);
+        const { id } = await req.json();
 
         await UserLink.findByIdAndDelete(id);
 
