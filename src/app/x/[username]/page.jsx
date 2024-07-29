@@ -102,7 +102,8 @@ const Page = ({params}) => {
 
     const addLinkJsx = <a className='inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-black hover:bg-yellow-500 hover:text-black' href='https://platinleaf.vercel.app/addLink'>Add Link</a>
 
-    const isAdmin = session.user.username === params.username;
+
+    const isAdmin = session && (session.user.username === params.username);
 
     return (
         <div className='m-2'>
