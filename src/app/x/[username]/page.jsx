@@ -102,10 +102,12 @@ const Page = ({params}) => {
 
     const addLinkJsx = <a className='inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-black hover:bg-yellow-500 hover:text-black' href='https://platinleaf.vercel.app/addLink'>Add Link</a>
 
+    const isAdmin = session.user.username === params.username;
+
     return (
         <div className='m-2'>
             <ul className='flex flex-col items-center'>
-                {(session) && (session.user.username === params.username && addLinkJsx)}
+                {(session) && (isAdmin && addLinkJsx)}
                 <li className="mt-10">
                     <h1 className='m-4 text-3xl font-bold'>
                         <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
@@ -119,7 +121,8 @@ const Page = ({params}) => {
                                 title={element.title} 
                                 url={element.url} 
                                 icon={element.icon} 
-                                onDelete={() => handleDelete(element._id)} 
+                                onDelete={() => handleDelete(element._id)}
+                                isAdmin={isAdmin} 
                             />
                         ))}
                     </ul>
