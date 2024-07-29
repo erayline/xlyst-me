@@ -1,16 +1,13 @@
 import { UserLink } from '@/models/UserLink';
 import mongoose from 'mongoose';
+import { NextResponse } from 'next/server';
 
-export async function POST(req, res) {
-    try {
+export async function POST(req) {
         await mongoose.connect(process.env.MONGO_URI);
 
         const { id } = await req.json();
 
         await UserLink.findByIdAndDelete(id);
-
-        res.status(200).json({ message: 'Link deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
-    }
+        
+        return NextResponse.json({message:"deleted successfuly"});
 }
