@@ -26,7 +26,7 @@ const Page = ({params}) => {
         setUserList(res);
     },[])
 
-    if(status==="loading"){
+    if(status==="loading" || userList == null){
         return (<div>
             🍸
         </div>)
