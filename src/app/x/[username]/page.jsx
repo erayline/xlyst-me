@@ -33,8 +33,8 @@ const Page = ({ params }) => {
         fetchData().catch(console.error);
     }, [params.username]);
 
-    if (status === "loading" || userList == null) {
-        return (<div>🍸</div>);
+    if (status === "loading") {
+        return (<div className='text-center text-9xl'>🍸</div>);
     }
 
     const addLinkJsx = <a className='inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-black hover:bg-yellow-500 hover:text-black' href='https://platinleaf.vercel.app/addLink'>Add Link</a>;
