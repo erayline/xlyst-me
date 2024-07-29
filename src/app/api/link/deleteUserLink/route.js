@@ -1,7 +1,7 @@
 import { UserLink } from '@/models/UserLink';
 import mongoose from 'mongoose';
 
-export default async function POST(req, res) {
+export default async function DELETE(req, res) {
     try {
         await mongoose.connect(process.env.MONGO_URI);
 
