@@ -2,7 +2,7 @@ import React from 'react'
 
 const LinkTile = ({title,url,icon, onDelete}) => {
   return (
-    <div>
+    <div className='flex flex-row'>
       <button onClick={onDelete}>Delete</button>
       <li className='m-2 flex justify-center border-l-4  border-black group'>
           <a target='_blank' href={url} className='flex flex-row justify-center gap-4 m-1 p-4 items-center duration-200 rounded-r-md group-hover:bg-black'>
