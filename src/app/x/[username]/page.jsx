@@ -87,6 +87,9 @@ const Page = ({params}) => {
     const handleDelete = async (id) => {
         await fetch('https://platinleaf.vercel.app/api/link/deleteUserLink', {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ id })
         });
 
