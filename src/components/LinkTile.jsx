@@ -11,3 +11,5 @@ const LinkTile = ({title,url,icon}) => {
     </li>
   )
 }
+
+export default LinkTile
