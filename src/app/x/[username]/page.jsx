@@ -18,7 +18,7 @@ const Page = ({params}) => {
         }
         ) // Replace with your API endpoint
         let res = await result.json();
-
+        console.log(res);
         //link tile oluşturuyoruz
         res = res.liste.map((element,index)=> {
             return <LinkTile key={index} title={element.title} url={element.url} icon={element.icon}/>
@@ -41,7 +41,7 @@ const Page = ({params}) => {
     return (
         <div className='m-2'>
                 <ul className='flex flex-col items-center'>
-                    {(session) && (session.user.username == params.username && addLinkJsx)}
+                    {(session) && ((session.user.username == params.username) && addLinkJsx)}
                     <li className="mt-10">
                         <h1 className='m-4 text-3xl font-bold'>
                             <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
