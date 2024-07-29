@@ -90,7 +90,7 @@ const Page = ({params}) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ id })
+            body: JSON.stringify({ id:id })
         });
 
         setUserList(userList.filter(link => link._id !== id));
