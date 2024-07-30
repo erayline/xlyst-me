@@ -16,7 +16,7 @@ const FirstSection =async  () => {
           
           <div className='my-3 flex justify-end'>
             {session ? <a
-                  href="https://platinleaf.vercel.app/login"
+                  href={"https://platinleaf.vercel.app/x/" + session.user.username}
                   className="p-3 rounded-xl bg-amber-400 text-black font-semibold"
                 >
                   Profile
