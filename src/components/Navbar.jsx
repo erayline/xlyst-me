@@ -1,16 +1,9 @@
 import { auth, signOut } from "@/auth";
-import { useRouter } from 'next/navigation';
 
 const Navbar = async () => {
+  const feedbackLink = "";
   const session = await auth();
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    await signOut();
-    router.push('/');
-  };
-
-  return (
+    return (
     <nav className="m-4">
       <div className="rounded-md lg:w-3/4 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
         <a href="https://www.xlyst.me/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -40,12 +33,18 @@ const Navbar = async () => {
               </a>
             </li>
             <li>
-              <button
-                className="navbar-li block rounded lg:border-0"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
+             <form action={async () => {
+                'use server'
+                await signOut();
+                
+              }}>
+                <button
+                  className="navbar-li block rounded lg:border-0"
+                  type="submit"
+                >
+                  Logout
+                </button>
+              </form>
             </li>
           </ul>
         ) : (
@@ -54,15 +53,16 @@ const Navbar = async () => {
             id="navbar-solid-bg"
           >
             <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
+              
               <li>
-                <a
-                  target="_blank"
-                  href={"https://insigh.to/b/xlyst"}
-                  className="navbar-li block rounded lg:border-0"
-                >
-                  Feedback? 🌇
-                </a>
-              </li>
+              <a
+                target="_blank"
+                href={"https://insigh.to/b/xlyst"}
+                className="navbar-li block rounded lg:border-0"
+              >
+                Feedback? 🌇
+              </a>
+            </li>
               <li>
                 <a
                   href="https://www.xlyst.me/login"

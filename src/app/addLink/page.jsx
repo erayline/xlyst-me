@@ -3,10 +3,14 @@
 import { useSession } from "next-auth/react";
 import { addLink } from "@/action/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Register = () => {
   const { data: session, status } = useSession();
+  const [iconUrl,setIconUrl] = useSession("");
+  
   const router = useRouter();
+
 
   // Redirect if not authenticated
   if (status === "unauthenticated") {
