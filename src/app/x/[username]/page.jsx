@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 const Page = ({params}) => {
     const [userList, setUserList] = useState([]);
     const { data: session, status } = useSession();
+    const [adminView, setAdminView] = useState(false);
 
     useEffect(() => {
         const fetchUserLinks = async () => {
@@ -46,10 +47,15 @@ const Page = ({params}) => {
 
     const isAdmin = session && (session.user.username === params.username);
 
+    function handleAdminView(){
+        setAdminView(p => !p);
+    }
+
     return (
         <div className='m-2'>
+            <button onClick={handleAdminView}>Admin/User view</button>
             <ul className='flex flex-col items-center'>
-                {(session) && (isAdmin && addLinkJsx)}
+                {(session) && adminView &&(isAdmin && addLinkJsx)}
                 <li className="mt-10">
                     <h1 className='m-4 text-3xl font-bold'>
                         <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
@@ -65,6 +71,7 @@ const Page = ({params}) => {
                                 icon={element.icon} 
                                 onDelete={() => handleDelete(element._id)}
                                 isAdmin={isAdmin} 
+                                adminView={adminView}
                             />
                         ))}
                     </ul>
