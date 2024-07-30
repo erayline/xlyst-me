@@ -14,7 +14,7 @@ const login = async (formData) => {
     password
   });
 
-  redirect(`/login`);
+  redirect(`/`);
   
 };
 

@@ -19,11 +19,6 @@ const Login = () => {
     
     if (session) return null; // Return null while redirecting
 
-    function handleSubmit(){
-      setTimeout(() => {
-        router.push('/')
-      }, 1000);
-    }
 
     return (
         <div className='w-full flex flex-col my-32 items-center justify-center'>
@@ -31,7 +26,7 @@ const Login = () => {
                 <h2 className='font-bold text-2xl md:text-3xl underline underline-offset-8 m-4'>Login</h2>
                 <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
-                <button type='submit' onClick={handleSubmit} className='bg-black text-white p-2 rounded w-full'>Login</button>
+                <button type='submit' className='bg-black text-white p-2 rounded w-full'>Login</button>
                 <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black p-2'>Register</Link></p>
             </form>
         </div>
