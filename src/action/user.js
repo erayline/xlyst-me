@@ -4,7 +4,6 @@
 import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
 
-
 const login = async (formData) => {
   const email = formData.get('email');
   const password = formData.get('password');
@@ -12,7 +11,6 @@ const login = async (formData) => {
   try {
     const result = await signIn('credentials', {
       redirect: false,
-      callbackUrl: "/",
       email,
       password
     });
@@ -21,8 +19,9 @@ const login = async (formData) => {
       return { error: result.error };
     }
 
-    redirect(`/`);
+    return { success: true };
   } catch (error) {
+    console.error("Login failed", error);
     return { error: "An unexpected error occurred. Please try again." };
   }
 };

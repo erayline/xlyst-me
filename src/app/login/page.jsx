@@ -9,7 +9,7 @@ const Login = () => {
     const { data: session, status } = useSession();
     const router = useRouter();
     const [error, setError] = useState('');
-    const [logging,setLogging] = useState('Login')
+    const [logging, setLogging] = useState('Login');
 
     useEffect(() => {
         if (session && session.user?.username) {
@@ -22,15 +22,17 @@ const Login = () => {
     if (session) return null; // Return null while redirecting
 
     const handleSubmit = async (formData) => {
+        setLogging("⏳");
         const result = await login(formData);
-        if (result && result.error) {
-            setError("Try again");
+        if (result.success) {
+            // Refresh the session
+            router.refresh();
+            // Redirect to the user's profile page
+            router.push(`/`);
+        } else if (result.error) {
+            setError(result.error);
             setLogging("Login");
         }
-    }
-
-    function handleLogging(){
-        setLogging("⏳")
     }
 
     return (
@@ -40,11 +42,11 @@ const Login = () => {
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
-                <button onClick={handleLogging} type='submit' className='bg-black text-white p-2 rounded w-full'>{logging}</button>
+                <button type='submit' className='bg-black text-white p-2 rounded w-full'>{logging}</button>
                 <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black p-2'>Register</Link></p>
             </form>
         </div>
     )
 }
 
-export default Login
+export default Login;
