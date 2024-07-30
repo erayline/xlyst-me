@@ -22,7 +22,7 @@ const MobileView = () => {
         <h3 className='text-center m-5 text-2xl font-bold'>$ Eray</h3>
         <div className='flex flex-col w-30'>
           <LinkTile title={"X"} url={"www.x.com/_erayl"} icon={"https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png"}/>
-          <LinkTile title={"Eggable"} url={"eggable-mobile.vercel.app"} icon={"https://eggable-mobile.vercel.app/ico.png"}/>
+          <LinkTile title={"Eggable"} url={"www.eggable-mobile.vercel.app"} icon={"https://eggable-mobile.vercel.app/ico.png"}/>
         </div>
         <img className='w-24 rounded-xl border-4 border-zinc-700 mt-5' src="https://i.pinimg.com/564x/be/0c/64/be0c64fa3f2760f33e15ea333f80b288.jpg" alt="image describes you" />
     </div>
