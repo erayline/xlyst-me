@@ -1,7 +1,11 @@
 import React from 'react'
 import MobileView from './MobileView'
+import { auth } from '@/auth';
 
-const FirstSection = ({loggedIn}) => {
+const FirstSection =async  () => {
+
+  const session = await auth();
+
   return (
     <div className='flex flex-col items-center p-4 sm:p-8'>
       <div className='  page-width max-w-screen-lg section-h justify-between items-center flex flex-col gap-10 lg:flex-row'>
@@ -11,7 +15,7 @@ const FirstSection = ({loggedIn}) => {
           <h2 className='  my-3 font-medium text-gray-500 w-64 lg:w-3/4'>&nbsp;&nbsp;&nbsp;No need to re enter every link you have in to the bio sections. No needless design, no useless tools. Simple, elegant and usefull. With this, save time.</h2>
           
           <div className='my-3 flex justify-end'>
-            {loggedIn ? <a
+            {session ? <a
                   href="https://platinleaf.vercel.app/login"
                   className="p-3 rounded-xl bg-amber-400 text-black font-semibold"
                 >
