@@ -2,10 +2,17 @@
 
 
 import { login } from "@/action/user";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 
 const Login = () => {
 
+    const { data: session, status } = useSession();
+
+    if(status === "loading") return <div className='m-10 text-center text-9xl'>🍸</div>
+
+    if(session) redirect('/x/'+session.user.username);
     
     return (
       <div className='w-full flex flex-col my-32 items-center justify-center'>
