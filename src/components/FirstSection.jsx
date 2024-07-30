@@ -7,7 +7,7 @@ const FirstSection =async  () => {
   const session = await auth();
 
   return (
-    <div className='flex flex-col items-center p-4 sm:p-8'>
+    <div className='flex flex-col items-center p-4'>
       <div className='  page-width max-w-screen-lg section-h justify-between items-center flex flex-col gap-10 lg:flex-row'>
       
         <section className='  h-auto flex flex-col items-center text-center sm:items-start sm:text-left'>
