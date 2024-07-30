@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "🍸  Prestige List",
-  description: "Link list tool for prestiged people.",
+  title: "XLyst",
+  description: "Link list tool people.",
   icons:{
     icon:"/icon.png"
   }
