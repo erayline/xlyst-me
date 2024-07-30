@@ -5,13 +5,19 @@ import { useState } from 'react'
 
 const Register = () => {
   const [error, setError] = useState('')
+  const [logging,setLogging] = useState('Register')
 
   const handleSubmit = async (formData) => {
     const result = await register(formData)
     if (result && result.error) {
       setError(result.error)
+      setLogging("Register"); 
     }
   }
+  
+  function handleLogging(){
+    setLogging("⏳")
+}
 
   return (
     <div className='w-full flex flex-col my-32 items-center justify-center'>
@@ -21,7 +27,7 @@ const Register = () => {
         <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="username" type="text" name="username" id="username" required />
-        <button className='bg-black text-white p-2 rounded w-full' type='submit'>signup</button>
+        <button onClick={handleLogging} className='bg-black text-white p-2 rounded w-full' type='submit'>{logging}</button>
         <p className='mt-4'>Already have an account? <a className='font-bold text-black p-2' href='/login'>Login</a></p>
       </form>
     </div>

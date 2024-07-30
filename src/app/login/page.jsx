@@ -24,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (formData) => {
         const result = await login(formData);
         if (result && result.error) {
-            setError(result.error);
+            setError("Try again");
             setLogging("Login");
         }
     }
