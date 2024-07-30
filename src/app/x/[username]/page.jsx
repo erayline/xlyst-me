@@ -1,6 +1,7 @@
 "use client"
 
 import LinkTile from '@/components/LinkTile'
+import MobileView from '@/components/MobileView';
 import { useSession } from 'next-auth/react';
 import React, { useState, useEffect } from 'react';
 
@@ -70,6 +71,7 @@ const Page = ({params}) => {
                     </ul>
                 </li>
             </ul>
+            <MobileView></MobileView>
         </div>
     )
 }
