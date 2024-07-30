@@ -7,7 +7,7 @@ const Navbar = async () => {
 
     return (
     <nav className="m-4">
-      <div className="rounded-md lg:w-2/3 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
+      <div className="rounded-md lg:w-3/4 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
         <a href="https://platinleaf.vercel.app" className="flex items-center space-x-3 rtl:space-x-reverse">
           <p className="text-5xl">🍸</p>
           <span className="self-center text-white text-3xl font-semibold">
@@ -29,7 +29,6 @@ const Navbar = async () => {
              <form action={async () => {
                 'use server'
                 await signOut();
-                location.reload();
               }}>
                 <button
                   className="navbar-li block rounded lg:border-0"
