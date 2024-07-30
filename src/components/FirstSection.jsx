@@ -11,7 +11,7 @@ const FirstSection = () => {
           <h2 className='  my-3 font-medium text-gray-500 w-64 lg:w-3/4'>&nbsp;&nbsp;&nbsp;No need to re enter every link you have in to the bio sections. No needless design, no useless tools. Simple, elegant and usefull. With this, save time.</h2>
           <div className='my-3 flex justify-end'>
                 <a
-                  href="https://platinleaf.vercel.app/login"
+                  href="https://platinleaf.vercel.app/register"
                   className="p-3 rounded-xl bg-amber-400 text-black font-semibold"
                 >
                   Register, now
