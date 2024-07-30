@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth";
 
 const Navbar = async () => {
+  const feedbackLink = "";
   const session = await auth();
     return (
     <nav className="m-4">
@@ -14,6 +15,14 @@ const Navbar = async () => {
 
         {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
+            <li>
+              <a
+                href={"https://insigh.to/b/xlyst"}
+                className="navbar-li block rounded lg:border-0"
+              >
+                Feedback? 🌇
+              </a>
+            </li>
             <li>
               <a
                 href={"https://platinleaf.vercel.app/x/" + session.user.username}
@@ -42,12 +51,15 @@ const Navbar = async () => {
             id="navbar-solid-bg"
           >
             <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent dark:bg-gray-800 lg:dark:bg-transparent dark:border-gray-700">
+              
               <li>
-                <a href="https://platinleaf.vercel.app/" className="navbar-li block rounded lg:border-0">
-                  How it works?
-                </a>
-              </li>
-
+              <a
+                href={"https://insigh.to/b/xlyst"}
+                className="navbar-li block rounded lg:border-0"
+              >
+                Feedback? 🌇
+              </a>
+            </li>
               <li>
                 <a
                   href="https://platinleaf.vercel.app/login"

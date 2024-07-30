@@ -18,10 +18,10 @@ const login = async (formData) => {
       return { error: result.error };
     }
 
+    redirect(`/`);
   } catch (error) {
     return { error: "An unexpected error occurred. Please try again." };
   }
-  redirect(`/`);
 };
 
 
