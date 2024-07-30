@@ -15,8 +15,10 @@ const Navbar = async () => {
 
         {session ? (
           <ul className="hidden lg:flex flex-col font-medium mt-4 rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
+            
             <li>
               <a
+                target="_blank"
                 href={"https://insigh.to/b/xlyst"}
                 className="navbar-li block rounded lg:border-0"
               >
@@ -54,6 +56,7 @@ const Navbar = async () => {
               
               <li>
               <a
+                target="_blank"
                 href={"https://insigh.to/b/xlyst"}
                 className="navbar-li block rounded lg:border-0"
               >
