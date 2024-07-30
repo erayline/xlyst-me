@@ -1,17 +1,14 @@
 import { auth, signOut } from "@/auth";
 
 const Navbar = async () => {
-
   const session = await auth();
-
-
     return (
     <nav className="m-4">
       <div className="rounded-md lg:w-3/4 text-white flex flex-wrap items-center justify-center lg:justify-between mx-auto p-4 bg-slate-950">
         <a href="https://platinleaf.vercel.app" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <p className="text-5xl">🍸</p>
+          <p className="text-5xl">🧭</p>
           <span className="self-center text-white text-3xl font-semibold">
-            Prestige List
+            XLyst
           </span>
         </a>
 
@@ -50,14 +47,7 @@ const Navbar = async () => {
                   How it works?
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://platinleaf.vercel.app/packs"
-                  className="navbar-li block rounded lg:border-0"
-                >
-                  Packs
-                </a>
-              </li>
+
               <li>
                 <a
                   href="https://platinleaf.vercel.app/login"
