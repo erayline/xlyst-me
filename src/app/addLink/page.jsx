@@ -8,7 +8,37 @@ import { useState } from "react";
 const Register = () => {
   const { data: session, status } = useSession();
   const [iconUrl, setIconUrl] = useState("");
-  const urlList = ["behance.png", "blogger.png", "digg.png", "discord.png","dribbble.png","dropbox.png"]
+  const urlList = [
+    "twitter.png",
+    "instagram.png",
+    "discord.png",
+    "facebook.png",
+    "linkedin.png",
+    "dropbox.png",
+    "spotify.png",
+    "youtube.png",
+    "snapchat.png",
+    "reddit.png",
+    "github.png",
+    "twitch.png",
+    "pinterest.png",
+    "messanger.png",
+    "kickstarter.png",
+    "whatsapp.png",
+    "envato.png",
+    "behance.png", 
+    "blogger.png", 
+    "digg.png", 
+    "dribbble.png",
+    "flickr.png",
+    "google-drive.png",
+    "google-plus.png",
+    "skype.png",
+    "vimeo.png",
+    "vk.png",
+    "wordpress.png",
+    "xing.png",
+  ]
   const [adding, setAdding] = useState('Add');
 
   const router = useRouter();
