@@ -53,7 +53,7 @@ const Page = ({params}) => {
 
     return (
         <div className='m-2'>
-            <button onClick={handleAdminView}>Admin/User view</button>
+            <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 font-semibold rounded-lg'>Admin/User view</button>
             <ul className='flex flex-col items-center'>
                 {(session) && adminView &&(isAdmin && addLinkJsx)}
                 <li className="mt-10">
