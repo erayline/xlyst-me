@@ -22,7 +22,6 @@ const Login = () => {
     if (session) return null; // Return null while redirecting
 
     const handleSubmit = async (formData) => {
-        setLogging("⏳");
         const result = await login(formData);
         if (result.success) {
             // Refresh the session
@@ -34,6 +33,9 @@ const Login = () => {
             setLogging("Login");
         }
     }
+    function handleLogging(){
+        setLogging("⏳");
+    }
 
     return (
         <div className='w-full flex flex-col my-32 items-center justify-center'>
@@ -42,7 +44,7 @@ const Login = () => {
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
-                <button type='submit' className='bg-black text-white p-2 rounded w-full'>{logging}</button>
+                <button type='submit' onClick={handleLogging} className='bg-black text-white p-2 rounded w-full'>{logging}</button>
                 <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black p-2'>Register</Link></p>
             </form>
         </div>

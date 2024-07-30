@@ -10,7 +10,6 @@ const Register = () => {
     const [registering, setRegistering] = useState('Register');
 
     const handleSubmit = async (formData) => {
-        setRegistering("⏳");
         const result = await register(formData);
         if (result.success) {
             router.push('/login');
@@ -20,6 +19,9 @@ const Register = () => {
         }
     }
 
+    function handleLogging(){
+      setRegistering("⏳");
+    }
     return (
         <div className='w-full flex flex-col my-32 items-center justify-center'>
             <form action={handleSubmit} className='max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl flex flex-col justify-center items-center border-4 p-4 md:p-10 border-primary rounded'>
@@ -28,7 +30,7 @@ const Register = () => {
                 <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder='username' type="text" name="username" id="username" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
-                <button type='submit' className='bg-black text-white p-2 rounded w-full'>{registering}</button>
+                <button type='submit' onClick={handleLogging} className='bg-black text-white p-2 rounded w-full'>{registering}</button>
                 <p className='mt-4'>Already have an account? <Link href="/login" className='font-bold text-black p-2'>Login</Link></p>
             </form>
         </div>
