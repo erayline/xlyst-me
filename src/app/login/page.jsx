@@ -12,7 +12,7 @@ const Login = () => {
 
     if(status === "loading") return <div className='m-10 text-center text-9xl'>🍸</div>
 
-    if(session) redirect('/x/'+session.user.username);
+    if(session) redirect('https://platinleaf.vercel.app/x/'+session.user.username);
     
     return (
       <div className='w-full flex flex-col my-32 items-center justify-center'>
