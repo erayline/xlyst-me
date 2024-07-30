@@ -78,7 +78,7 @@ const Register = () => {
         <h2 className='font-bold text-2xl md:text-3xl underline underline-offset-8 m-4'>Add a Link</h2>
         <input className='w-full p-2 mb-4 border rounded' placeholder='Title(X, my products...)' type="text" name="title" id="title" required />
         <input className='w-full p-2 mb-4 border rounded' placeholder="url" type="text" name="url" id="url" required />
-        <div className="w-56 justify-center flex flex-row flex-wrap h-36 mb-4 overflow-x-hidden bg-black rounded-xl overflow-scroll">
+        <div className="w-56 justify-center flex flex-row flex-wrap h-44 mb-4 overflow-x-hidden bg-black rounded-xl overflow-scroll">
           {chosenIcon}
         </div>
         <input type="hidden" name="iconUrl" id="iconUrl" value={iconUrl}/>
