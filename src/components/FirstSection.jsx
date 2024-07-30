@@ -14,14 +14,7 @@ const FirstSection = () => {
         <section className='flex flex-col items-center sm:items-start'>
           <h2 className='text-white text-xl sm:text-2xl m-3'>Some eggs🐣</h2>
           <div className='flex flex-col justify-center sm:justify-start'>
-            <div className='flex flex-row'>
-              <img className='hover:bg-orange-500 duration-150 rounded-xl w-24 h-24 sm:w-40 sm:h-40 p-3 m-2' src="images\74.png" alt="" />
-              <img className='hover:bg-orange-500 duration-150 rounded-xl w-24 h-24 sm:w-40 sm:h-40 p-3 m-2' src="images\49.png" alt="" />
-            </div>
-            <div className='flex flex-row'>
-              <img className='hover:bg-orange-500 duration-150 rounded-xl w-24 h-24 sm:w-40 sm:h-40 p-3 m-2' src="images\83.png" alt="" />
-              <img className='hover:bg-orange-500 duration-150 rounded-xl w-24 h-24 sm:w-40 sm:h-40 p-3 m-2' src="images\84.png" alt="" />
-            </div>
+            <p>buraya uygulamanın showcase'i konulacak</p>
           </div>
         </section>
 
