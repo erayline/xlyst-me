@@ -7,16 +7,24 @@ const login = async (formData) => {
   const email = formData.get('email');
   const password = formData.get('password');
 
-  const session = await signIn('credentials', {
-    redirect: false,
-    callbackUrl: "/",
-    email,
-    password
-  });
+  try {
+    const result = await signIn('credentials', {
+      redirect: false,
+      callbackUrl: "/",
+      email,
+      password
+    });
 
-  redirect(`/`);
-  
+    if (result.error) {
+      return { error: result.error };
+    }
+
+    redirect(`/`);
+  } catch (error) {
+    return { error: "An unexpected error occurred. Please try again." };
+  }
 };
+
 
 const register = async (formData) => {
   const email = formData.get("email");
