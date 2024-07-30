@@ -54,7 +54,10 @@ const Page = ({params}) => {
     return (
         <div className='m-2'>
             <ul className='flex flex-col items-center'>
-            <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
+                {
+                    (isAdmin) &&
+                    <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
+                }
                 {(session) && adminView &&(isAdmin && addLinkJsx)}
                 <li className="mt-10">
                     <h1 className='m-4 text-3xl font-bold'>
