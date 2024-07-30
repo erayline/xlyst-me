@@ -2,7 +2,6 @@
 
 import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
-
 const login = async (formData) => {
   const email = formData.get('email');
   const password = formData.get('password');
@@ -19,10 +18,10 @@ const login = async (formData) => {
       return { error: result.error };
     }
 
-    redirect(`/`);
   } catch (error) {
     return { error: "An unexpected error occurred. Please try again." };
   }
+  redirect(`/`);
 };
 
 
