@@ -1,20 +1,26 @@
 import React from 'react'
+import MobileView from './MobileView'
 
 const FirstSection = () => {
   return (
     <div className='flex flex-col items-center p-4 sm:p-8'>
-      <div className='page-width max-w-screen-lg section-h justify-between items-center flex flex-col lg:flex-row'>
+      <div className='  page-width max-w-screen-lg section-h justify-between items-center flex flex-col gap-10 lg:flex-row'>
       
-        <section className='h-auto flex flex-col items-center text-center sm:items-start sm:text-left'>
-          <h1 className='text-white m-3 text-2xl sm:text-3xl font-bold'>Everything about you, In one place</h1>
-          <h2 className='m-3 font-medium text-gray-500 w-64 sm:w-96'>If you are eligible, you will have this.</h2>
+        <section className='  h-auto flex flex-col items-center text-center sm:items-start sm:text-left'>
+          <h1 className='  text-zinc-800 my-3 text-3xl lg:text-5xl font-bold'>Everything about you, in one place.</h1>
+          <h2 className='  my-3 font-medium text-gray-500 w-64 sm:w-96'>No need to re enter every link you have in the bio sections. With this, save time.</h2>
+          <div className='my-3 flex justify-end'>
+                <a
+                  href="https://platinleaf.vercel.app/login"
+                  className="p-3 rounded-xl bg-amber-400 text-black font-semibold"
+                >
+                  Register, now
+                </a>
+            </div>
         </section>
         
-        <section className='flex flex-col items-center sm:items-start'>
-          <h2 className='text-white text-xl sm:text-2xl m-3'>🍸</h2>
-          <div className='flex flex-col justify-center sm:justify-start'>
-            <p>buraya uygulamanın showcase'i konulacak</p>
-          </div>
+        <section className='  flex flex-col items-center sm:items-start'>
+          <MobileView/>
         </section>
 
       </div>
