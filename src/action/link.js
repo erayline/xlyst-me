@@ -25,7 +25,7 @@ const addLink = async (formData) => {
 
     const data = await response.json();
     if (data.success) {
-        redirect(`/x/${username}`)
+        redirect(`https://www.xlyst.me/x/${username}`)
         // handle success
     } else {
         // handle error
