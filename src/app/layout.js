@@ -2,14 +2,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { SessionProvider } from "next-auth/react";
-import Footer from "@/components/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "XLyst",
-  description: "Link list tool people.",
+  description: "Link listing and sharing tool for people.",
   icons:{
     icon:"/icon.png"
   }

@@ -1,7 +1,6 @@
 import { auth, signOut } from "@/auth";
 
 const Navbar = async () => {
-  const feedbackLink = "";
   const session = await auth();
     return (
     <nav className="m-4 flex justify-center">
