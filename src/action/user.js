@@ -23,25 +23,29 @@ const register = async (formData) => {
   const password = formData.get("password");
   const username = formData.get("username");
 
-  let result = await fetch("https://platinleaf.vercel.app/api/register", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email,
-      password,
-      username
-    })
-  });
+  try {
+    let response = await fetch("https://platinleaf.vercel.app/api/register", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        username
+      })
+    });
 
-  result = await result.json();
-  
-  if (result.success) {
-    redirect('/login');
-  } else {
-    // Handle registration error (optional)
-    console.error("Registration failed");
+    if (response.ok) {
+      redirect('/login');
+    } else {
+      const result = await response.json();
+      // Return the error message to be displayed in the UI
+      return { error: result.message };
+    }
+  } catch (error) {
+    console.error("Registration failed", error);
+    return { error: "An unexpected error occurred. Please try again." };
   }
 };
 
