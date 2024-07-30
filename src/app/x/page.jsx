@@ -14,7 +14,7 @@ const Page = () => {
     if (session) {
       router.push('/x/' + session.user.username);
     } else {
-      router.push('/');
+      router.push('/login');
     }
   }, [status, session, router]);
 
