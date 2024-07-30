@@ -22,7 +22,7 @@ const Register = () => {
     "github.png",
     "twitch.png",
     "pinterest.png",
-    "messanger.png",
+    "messenger.png",
     "kickstarter.png",
     "whatsapp.png",
     "envato.png",
