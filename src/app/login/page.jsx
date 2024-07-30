@@ -9,6 +9,7 @@ const Login = () => {
     const { data: session, status } = useSession();
     const router = useRouter();
     const [error, setError] = useState('');
+    const [logging,setLogging] = useState('Login')
 
     useEffect(() => {
         if (session && session.user?.username) {
@@ -24,7 +25,12 @@ const Login = () => {
         const result = await login(formData);
         if (result && result.error) {
             setError(result.error);
+            setLogging("Login");
         }
+    }
+
+    function handleLogging(){
+        setLogging("⏳")
     }
 
     return (
@@ -34,7 +40,7 @@ const Login = () => {
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <input className='w-full p-2 mb-4 border rounded' placeholder='email' type="email" name="email" id="email" required />
                 <input className='w-full p-2 mb-4 border rounded' placeholder="****" type="password" name="password" id="password" required />
-                <button type='submit' className='bg-black text-white p-2 rounded w-full'>Login</button>
+                <button onClick={handleLogging} type='submit' className='bg-black text-white p-2 rounded w-full'>{logging}</button>
                 <p className='mt-4'>Don't have an account? <Link href="/register" className='font-bold text-black p-2'>Register</Link></p>
             </form>
         </div>
