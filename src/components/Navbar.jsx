@@ -29,6 +29,7 @@ const Navbar = async () => {
              <form action={async () => {
                 'use server'
                 await signOut();
+                location.reload();
               }}>
                 <button
                   className="navbar-li block rounded lg:border-0"
