@@ -70,7 +70,7 @@ const Page = ({params}) => {
                         ))}
                     </ul>
                 </li>
-                <MobileViewProfile/>
+                <MobileViewProfile userList={userList} username={params.username}/>
             </ul>
         </div>
     )

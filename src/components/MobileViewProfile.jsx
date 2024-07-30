@@ -16,13 +16,13 @@ const LinkTile = ({title,url,icon, onDelete,isAdmin}) => {
 
 
 
-const MobileView = ({userList}) => {
+const MobileViewProfile = ({userList,username}) => {
 
   const userLinksJsx = userList.map((element, index) => <LinkTile key={index} title={element.title} url={url} icon={icon}></LinkTile>)
 
   return (
     <div className='border-4 bg-zinc-300 border-zinc-800 w-56 h-96 rounded-3xl flex flex-col items-center overflow-scroll'>
-        <h3 className='text-center m-5 text-2xl font-bold'>$ Eray</h3>
+        <h3 className='text-center m-5 text-2xl font-bold'>$ {username}</h3>
         <div className='flex flex-col w-30'>
           {userLinksJsx}
           {/* <LinkTile title={"X"} url={"https://x.com/_erayl"} icon={"https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebc6c19c2fe31de94c78e_X-vector-logo-download.png"}/> */}
@@ -33,4 +33,4 @@ const MobileView = ({userList}) => {
   )
 }
 
-export default MobileView
+export default MobileViewProfile
