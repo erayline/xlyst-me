@@ -2,11 +2,12 @@
 
 import { signIn } from "@/auth"
 import { redirect } from "next/navigation"
+import { useRouter } from 'next/router';
 
 const login = async (formData) =>{
     const email = formData.get('email');
     const password = formData.get('password');
-
+    const router = useRouter();
     //TODO: SİGN İN'İ DÜZELt
 
 
@@ -18,7 +19,7 @@ const login = async (formData) =>{
         password}
     )
 
-    // if (session) redirect('/'+session.user.username);
+    if (session) router.push('/x/'+session.user.username);
 }
 
 const register = async (formData)=>{
