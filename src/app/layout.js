@@ -22,7 +22,6 @@ export default function RootLayout({ children }) {
         <SessionProvider>
           <Navbar/>
           {children}
-          <Footer/>
         </SessionProvider>
       </body>
     </html>
