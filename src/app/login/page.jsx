@@ -17,7 +17,7 @@ const Login = () => {
         }
     }, [session, router]);
 
-    if (status === "loading") return <div className='m-10 text-center text-9xl'>🍸</div>
+    if (status === "loading") return <div className='m-10 text-center text-9xl'>...</div>
     
     if (session) return null; // Return null while redirecting
 

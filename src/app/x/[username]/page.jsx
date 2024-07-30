@@ -39,7 +39,7 @@ const Page = ({params}) => {
     };
 
     if (status === "loading") {
-        return (<div className='m-10 text-center text-9xl'>🍸</div>);
+        return (<div className='m-10 text-center text-9xl'>...</div>);
     }
 
     const addLinkJsx = <a className='inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-black hover:bg-yellow-500 hover:text-black' href='https://platinleaf.vercel.app/addLink'>Add Link</a>
