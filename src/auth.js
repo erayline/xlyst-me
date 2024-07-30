@@ -14,7 +14,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const password = credentials.password;
 
         try {
-          let response = await fetch("https://platinleaf.vercel.app/api/login", {
+          let response = await fetch("https://www.xlyst.me/api/login", {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',

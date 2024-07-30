@@ -31,7 +31,7 @@ const register = async (formData) => {
   const username = formData.get("username");
 
   try {
-    let response = await fetch("https://platinleaf.vercel.app/api/register", {
+    let response = await fetch("https://xlyst.me/api/register", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

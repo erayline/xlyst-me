@@ -11,7 +11,7 @@ const Page = ({params}) => {
 
     useEffect(() => {
         const fetchUserLinks = async () => {
-            const result = await fetch('https://platinleaf.vercel.app/api/link/getUserLinks', {
+            const result = await fetch('https://www.xlyst.me/api/link/getUserLinks', {
                 method: "POST",
                 body: JSON.stringify({
                     username: params.username
@@ -27,7 +27,7 @@ const Page = ({params}) => {
     }, [params.username]);
 
     const handleDelete = async (id) => {
-        await fetch('https://platinleaf.vercel.app/api/link/deleteUserLink', {
+        await fetch('https://www.xlyst.me/api/link/deleteUserLink', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
