@@ -6,8 +6,8 @@ const Footer = () => {
         <div>
             <h3 className='text-zinc-500 underline text-center'>More</h3>
             <ul className='text-zinc-400 gap-4 my-4 text-center flex flex-col'>
+                <li><a href="https://www.xlyst.me/">📜 XLyst</a></li>
                 <li><a href="https://eggable-mobile.vercel.app/">🐣 Eggable</a></li>
-                <li><a href="https://www.xlyst.me/">🍸 Prestige List</a></li>
             </ul>
         </div>
         <div>
