@@ -11,6 +11,7 @@ const Register = () => {
 
     const handleSubmit = async (formData) => {
         const result = await register(formData);
+
         if (result.success) {
             router.push('/login');
         } else if (result.error) {
@@ -18,6 +19,8 @@ const Register = () => {
             setRegistering("Register");
         }
     }
+
+
 
     function handleLogging(){
       setRegistering("⏳");

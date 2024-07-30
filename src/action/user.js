@@ -31,6 +31,16 @@ const register = async (formData) => {
   const password = formData.get("password");
   const username = formData.get("username");
 
+  
+  function isValidUsername(username) {
+    const regex = /^[A-Za-z0-9]+$/;
+    return regex.test(username);
+  }
+
+  if(!isValidUsername(username)){
+      return { success: false,error:"username must be valid" };
+  }
+
   try {
     let response = await fetch("https://xlyst.me/api/register", {
       method: "POST",
