@@ -8,7 +8,7 @@ import { useState } from "react";
 const Register = () => {
   const { data: session, status } = useSession();
   const [iconUrl,setIconUrl] = useSession("");
-  
+
   const router = useRouter();
 
 
