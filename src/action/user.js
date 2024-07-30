@@ -4,6 +4,7 @@
 import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
 
+
 const login = async (formData) => {
   const email = formData.get('email');
   const password = formData.get('password');
@@ -26,7 +27,6 @@ const login = async (formData) => {
   }
 };
 
-
 const register = async (formData) => {
   const email = formData.get("email");
   const password = formData.get("password");
@@ -46,10 +46,9 @@ const register = async (formData) => {
     });
 
     if (response.ok) {
-      redirect('/login');
+      return { success: true };
     } else {
       const result = await response.json();
-      // Return the error message to be displayed in the UI
       return { error: result.message };
     }
   } catch (error) {
