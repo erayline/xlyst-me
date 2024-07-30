@@ -12,7 +12,6 @@ const Login = () => {
 
     if(status === "loading") return <div className='m-10 text-center text-9xl'>🍸</div>
     console.log(session);
-    if(session) redirect(`/${session.user.username}`);
     
     return (
       <div className='w-full flex flex-col my-32 items-center justify-center'>

@@ -18,7 +18,7 @@ const login = async (formData) =>{
         password}
     )
 
-    if (session) redirect('/'+session.user.username);
+    // if (session) redirect('/'+session.user.username);
 }
 
 const register = async (formData)=>{
