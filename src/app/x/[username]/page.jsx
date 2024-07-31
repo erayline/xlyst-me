@@ -59,7 +59,7 @@ const Page = ({params}) => {
                     <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
                 }
                 {(session) && adminView &&(isAdmin && addLinkJsx)}
-                <li>
+                <li className='mt-2'>
                     <h1 className='m-4 text-3xl font-bold'>
                         <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
                     </h1>
