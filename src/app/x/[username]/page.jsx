@@ -12,6 +12,7 @@ const Page = ({params}) => {
     useEffect(() => {
         const fetchUserLinks = async () => {
             const result = await fetch('https://www.xlyst.me/api/link/getUserLinks', {
+            // const result = await fetch('http://localhost:3000/api/link/getUserLinks', {
                 method: "POST",
                 body: JSON.stringify({
                     username: params.username
@@ -59,9 +60,10 @@ const Page = ({params}) => {
                     <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
                 }
                 {(session) && adminView &&(isAdmin && addLinkJsx)}
-                <li className='mt-2'>
-                    <h1 className='m-4 text-3xl font-bold'>
-                        <span className='m-1 text-2xl font-extrabold'>$</span>{params.username}
+                <li className='mt-2 flex flex-row items-center'>
+                    <span className='my-1 text-4xl font-bold'>$</span>
+                    <h1 className='my-4 mx-1 mt-3 text-3xl font-semibold'>
+                        {params.username}
                     </h1>
                 </li>
                 <li className='w-full flex justify-center'>
