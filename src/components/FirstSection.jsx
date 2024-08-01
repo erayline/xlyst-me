@@ -8,7 +8,7 @@ const FirstSection =async  () => {
 
   return (
     <div className='flex flex-col items-center p-4'>
-      <div className='  page-width max-w-screen-lg section-h justify-between items-center flex flex-col gap-10 lg:flex-row'>
+      <div className='mt-0 lg:mt-10  page-width max-w-screen-lg section-h justify-between items-center flex flex-col gap-10 lg:flex-row'>
       
         <section className='  h-auto flex flex-col items-center text-center sm:items-start sm:text-left'>
           <h1 className='  text-zinc-800 mb-3 text-3xl lg:text-5xl font-bold'>Simple:<br/><br/> Everything about you, in one place.</h1>
