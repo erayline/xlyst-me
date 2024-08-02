@@ -6,7 +6,7 @@ const Navbar = async () => {
     <nav className="m-4 flex justify-center">
       <div className="rounded-xl mx-4 px-14 mt-5 lg:mt-0 lg:px-5 lg:w-2/3 h-20 text-white flex flex-wrap items-center justify-center lg:justify-between bg-slate-950">
         <a href="https://www.xlyst.me/" className="mx-5 flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/icon.png" className="w-14" alt="" />
+          <img src="/icon.png" className="w-14 bg-white rounded-xl p-1" alt="" />
           <span className="self-center text-white text-3xl font-semibold">
             XLyst
           </span>
