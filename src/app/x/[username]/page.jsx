@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 
 const Page = ({params}) => {
     const [userList, setUserList] = useState([]);
-    const [displayName,setDisplayName] = useState('');
     const { data: session, status } = useSession();
     const [adminView, setAdminView] = useState(false);
 
@@ -22,7 +21,7 @@ const Page = ({params}) => {
             });
 
             const res = await result.json();
-            setDisplayName(params.username);
+
             setUserList(res.liste);
         };
 
@@ -37,7 +36,7 @@ const Page = ({params}) => {
             },
             body: JSON.stringify({ id:id })
         });
-
+        
         setUserList(userList.filter(link => link._id !== id));
     };
 
@@ -47,46 +46,48 @@ const Page = ({params}) => {
 
     const addLinkJsx = <a className='inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-black hover:bg-yellow-500 hover:text-black' href='https://xlyst.me/addLink'>Add Link</a>
 
-
     const isAdmin = session && (session.user.username === params.username);
 
     function handleAdminView(){
         setAdminView(p => !p);
     }
 
-    return (
-        <div className='m-2'>
-            <ul className='flex flex-col items-center'>
-                
-                <li className='mt-2 flex flex-row items-center'>
-                    <span className='my-1 text-4xl font-bold'>$</span>
-                    <h1 className='my-4 mx-1 mt-3 text-3xl font-semibold'>
-                        {displayName}
-                    </h1>
-                </li>
-                <li className='w-full flex justify-center'>
-                    <ul className='flex flex-col items-start'>
-                        {userList.map((element, index) => (
-                            <LinkTile 
-                                key={index} 
-                                title={element.title} 
-                                url={element.url} 
-                                icon={element.icon} 
-                                onDelete={() => handleDelete(element._id)}
-                                isAdmin={isAdmin} 
-                                adminView={adminView}
-                            />
-                        ))}
-                    </ul>
-                </li>
-                {
-                    (isAdmin) &&
-                    <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
-                }
-                {(session) && adminView &&(isAdmin && addLinkJsx)}
-            </ul>
-        </div>
-    )
+    if(userList){
+        return (
+            <div className='m-2'>
+                <ul className='flex flex-col items-center'>
+                    <li className='mt-2 flex flex-row items-center'>
+                        <span className='my-1 text-4xl font-bold'>$</span>
+                        <h1 className='my-4 mx-1 mt-3 text-3xl font-semibold'>
+                            {params.username}
+                        </h1>
+                    </li>
+                    <li className='w-full flex justify-center'>
+                        <ul className='flex flex-col items-start'>
+                            {userList.map((element, index) => (
+                                <LinkTile 
+                                    key={index} 
+                                    title={element.title} 
+                                    url={element.url} 
+                                    icon={element.icon} 
+                                    onDelete={() => handleDelete(element._id)}
+                                    isAdmin={isAdmin} 
+                                    adminView={adminView}
+                                />
+                            ))}
+                        </ul>
+                    </li>
+                    {
+                        (isAdmin) &&
+                        <button onClick={handleAdminView} className='text-center bg-zinc-300 p-3 m-3 font-semibold rounded-lg'>Admin/User view</button>
+                    }
+                    {(session) && adminView &&(isAdmin && addLinkJsx)}
+                </ul>
+            </div>
+        )
+    }else{
+        return <div></div>;
+    }
 }
 
 export default Page;
