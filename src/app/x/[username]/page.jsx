@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 const Page = ({params}) => {
     const [userList, setUserList] = useState([]);
+    const [displayName,setDisplayName] = useState('');
     const { data: session, status } = useSession();
     const [adminView, setAdminView] = useState(false);
 
@@ -21,7 +22,7 @@ const Page = ({params}) => {
             });
 
             const res = await result.json();
-
+            setDisplayName(params.username);
             setUserList(res.liste);
         };
 
@@ -60,7 +61,7 @@ const Page = ({params}) => {
                 <li className='mt-2 flex flex-row items-center'>
                     <span className='my-1 text-4xl font-bold'>$</span>
                     <h1 className='my-4 mx-1 mt-3 text-3xl font-semibold'>
-                        {params.username}
+                        {displayName}
                     </h1>
                 </li>
                 <li className='w-full flex justify-center'>
